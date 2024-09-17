@@ -18,6 +18,18 @@ app.use('/cursos', cursosRoutes); // Rutas para cursos
 app.use('/inscripcion', inscripcionRoutes);  // Rutas para inscripciones
 app.use('/login', loginRoutes);  // Rutas para logins
 
+/*
+// !BORRAR LUEGO DE USAR
+//sirve para sincronizar la base de datos con los modelos de sequelize 
+sequelize.sync({ force: true })
+  .then(() => {
+    console.log('Base de datos sincronizada.');
+  })
+  .catch(err => {
+    console.error('Error al sincronizar la base de datos:', err);
+  });
+*/
+
 // Conectar a la base de datos y sincronizar modelos
 sequelize.authenticate()
   .then(() => {
