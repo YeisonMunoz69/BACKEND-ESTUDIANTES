@@ -7,7 +7,17 @@ const inscripcionRoutes = require('./routes/inscripcion');
 const loginRoutes = require('./routes/login');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
+
+// Habilitar CORS
+const cors = require('cors');
+//Sirve para que el servidor acepte solicitudes de otros dominios
+app.use(cors({
+  origin: 'http://localhost:3000', // Permite solicitudes desde el frontend de React
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Define los métodos permitidos
+  credentials: true // Si necesitas permitir el uso de cookies o autenticación
+}));
+
 
 // Middleware para parsear JSON
 app.use(bodyParser.json());
